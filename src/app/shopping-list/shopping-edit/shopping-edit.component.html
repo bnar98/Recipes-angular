@@ -1,17 +1,18 @@
-<form action="" style="margin-left: 30px;">
+<form style="margin-left: 30px;">
     <div class="row">
         <div class="col-2">
             <label>Name:</label>
-            <input type="text" class="form-control">
+            <input type="text" class="form-control" #inputName>
         </div>
         <div class="col-1">
             <label>Amount</label>
-            <input type="text" class="form-control">
+            <input type="text" class="form-control" #inputAmount>
         </div>
     </div>
-    <div class="">
-        <button class="btn btn-primary">Add</button>
-        <button class="btn btn-danger">Delete</button>
-        <button class="btn btn-primary">Cancle</button>
-    </div>
+
 </form>
+<div class="">
+    <button class="btn btn-primary" (click)="addItem()">Add</button>
+    <button class="btn btn-danger">Delete</button>
+    <button class="btn btn-primary">Cancle</button>
+</div>
