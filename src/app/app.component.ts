@@ -7,4 +7,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Recipes-angular';
+  test: boolean = false;
+
 }
