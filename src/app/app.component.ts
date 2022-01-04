@@ -6,7 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  feuture = "recipe";
   title = 'Recipes-angular';
   test: boolean = false;
+  onselect(event: any) {
+    this.feuture = event;
+  }
 
 }
