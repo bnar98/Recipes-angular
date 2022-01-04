@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Recipe } from '../recipe.model';
 
 @Component({
   selector: 'app-recipes-list',
   templateUrl: './recipes-list.component.html',
-  styleUrls: ['./recipes-list.component.scss']
+  styleUrls: ['./recipes-list.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class RecipesListComponent implements OnInit {
   recipes: Recipe[] = [];
