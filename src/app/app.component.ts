@@ -8,6 +8,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
   feuture = "recipe";
   title = 'Recipes-angular';
+  evens = [2, 4, 6, 8, 1];
   test: boolean = false;
   onselect(event: any) {
     this.feuture = event;

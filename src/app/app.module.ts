@@ -9,8 +9,19 @@ import { RecipesListComponent } from './recipes/recipes-list/recipes-list.compon
 import { RecipesItemComponent } from './recipes/recipes-list/recipes-item/recipes-item.component';
 import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-edit.component';
-import { RecipesEditComponent } from './recipes/recipes-edit/recipes-edit.component';
 import { RecipesDetailComponent } from './recipes/recipes-detail/recipes-detail.component';
+import { UnlessDirective } from './unless.directive';
+import { RecipeService } from './recipes/recipe.service';
+import { RouterModule, Routes } from '@angular/router';
+
+const route: Routes = [
+  {
+    path: 'shopping', component: ShoppingListComponent
+  },
+  {
+    path: '', component: RecipesComponent
+  }
+];
 
 @NgModule({
   declarations: [
@@ -21,14 +32,15 @@ import { RecipesDetailComponent } from './recipes/recipes-detail/recipes-detail.
     RecipesItemComponent,
     ShoppingListComponent,
     ShoppingEditComponent,
-    RecipesEditComponent,
-    RecipesDetailComponent
+    RecipesDetailComponent,
+    UnlessDirective
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    RouterModule.forRoot(route)
   ],
-  providers: [],
+  providers: [RecipeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

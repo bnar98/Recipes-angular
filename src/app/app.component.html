@@ -1,4 +1,3 @@
 <app-header (Select)="onselect($event)"></app-header>
 
-<app-recipes *ngIf="feuture==='recipe'"></app-recipes>
-<app-shopping-list *ngIf="feuture!=='recipe'"></app-shopping-list>
+<router-outlet></router-outlet>
