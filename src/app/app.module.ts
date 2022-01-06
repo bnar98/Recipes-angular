@@ -13,13 +13,17 @@ import { RecipesDetailComponent } from './recipes/recipes-detail/recipes-detail.
 import { UnlessDirective } from './unless.directive';
 import { RecipeService } from './recipes/recipe.service';
 import { RouterModule, Routes } from '@angular/router';
+import { RecipeStartComponent } from './recipes/recipe-start/recipe-start.component';
 
 const route: Routes = [
   {
     path: 'shopping', component: ShoppingListComponent
   },
   {
-    path: '', component: RecipesComponent
+    path: 'recipes', component: RecipesComponent, children: [
+      { path: '', component: RecipeStartComponent },
+      { path: ':id', component: RecipesDetailComponent }
+    ]
   }
 ];
 
@@ -33,6 +37,7 @@ const route: Routes = [
     ShoppingListComponent,
     ShoppingEditComponent,
     RecipesDetailComponent,
+    RecipeStartComponent,
     UnlessDirective
   ],
   imports: [
