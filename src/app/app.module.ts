@@ -14,6 +14,7 @@ import { UnlessDirective } from './unless.directive';
 import { RecipeService } from './recipes/recipe.service';
 import { RouterModule, Routes } from '@angular/router';
 import { RecipeStartComponent } from './recipes/recipe-start/recipe-start.component';
+import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
 
 const route: Routes = [
   {
@@ -22,7 +23,9 @@ const route: Routes = [
   {
     path: 'recipes', component: RecipesComponent, children: [
       { path: '', component: RecipeStartComponent },
-      { path: ':id', component: RecipesDetailComponent }
+      { path: 'new', component: RecipeEditComponent },
+      { path: ':id', component: RecipesDetailComponent },
+      { path: ':id/edit', component: RecipeEditComponent }
     ]
   }
 ];
@@ -38,7 +41,8 @@ const route: Routes = [
     ShoppingEditComponent,
     RecipesDetailComponent,
     RecipeStartComponent,
-    UnlessDirective
+    UnlessDirective,
+    RecipeEditComponent
   ],
   imports: [
     BrowserModule,
