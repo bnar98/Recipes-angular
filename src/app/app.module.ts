@@ -17,6 +17,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { RecipeStartComponent } from './recipes/recipe-start/recipe-start.component';
 import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AuthComponent } from './auth/auth.component';
+import { SpinnerComponent } from './shared/spinner/spinner.component';
 
 const route: Routes = [
   {
@@ -29,7 +31,8 @@ const route: Routes = [
       { path: ':id', component: RecipesDetailComponent },
       { path: ':id/edit', component: RecipeEditComponent }
     ]
-  }
+  },
+  { path: 'auth', component: AuthComponent }
 ];
 
 @NgModule({
@@ -44,7 +47,9 @@ const route: Routes = [
     RecipesDetailComponent,
     RecipeStartComponent,
     UnlessDirective,
-    RecipeEditComponent
+    RecipeEditComponent,
+    AuthComponent,
+    SpinnerComponent
   ],
   imports: [
     BrowserModule,
