@@ -1,24 +1,27 @@
-<div style="text-align: center;" *ngIf="isLoding">
-    <app-spinner></app-spinner>
+<div style="text-align: center" *ngIf="isLoding">
+  <app-spinner></app-spinner>
 </div>
 
-<form class="container" #authform="ngForm" (ngSubmit)="onsubmit(authform)" *ngIf="!isLoding" style="width: 500px;">
-    <div class="alert alert-danger" *ngIf="error">
-        <p>{{error}}</p>
-    </div>
-    <div class="form-group">
-        <label style="margin-bottom: 10px;">E-mail</label>
+<form class="container" #authform="ngForm" (ngSubmit)="onsubmit(authform)" *ngIf="!isLoding" style="width: 500px">
+  <!-- <div class="alert alert-danger" *ngIf="error">
+    <p>{{ error }}</p>
+  </div> -->
+  <app-alert [message]="error" *ngIf="error" (closebtn)="close()"></app-alert>
+  <div class="form-group">
+    <label style="margin-bottom: 10px">E-mail</label>
 
-        <input type="email" class="form-control" ngModel name="email" required email>
-    </div>
-    <div class="form-group">
-        <label style="margin-bottom: 10px;">password</label>
-        <input type="password" class="form-control" ngModel name="pass" required minlength="6">
-    </div>
-    <div style="margin-top: 50px;">
-        <button class="btn btn-primary" style="margin-right: 30px;" type="submit"
-            [disabled]="!authform.valid">{{isLoginMode?'Login':'Sing
-            Up'}}</button>
-        <button class="btn btn-primary" (click)="onSwitchMode()" type="button">Switch</button>
-    </div>
+    <input type="email" class="form-control" ngModel name="email" required email />
+  </div>
+  <div class="form-group">
+    <label style="margin-bottom: 10px">password</label>
+    <input type="password" class="form-control" ngModel name="pass" required minlength="6" />
+  </div>
+  <div style="margin-top: 50px">
+    <button class="btn btn-primary" style="margin-right: 30px" type="submit" [disabled]="!authform.valid">
+      {{ isLoginMode ? 'Login' : 'Sing Up' }}
+    </button>
+    <button class="btn btn-primary" (click)="onSwitchMode()" type="button">
+      Switch
+    </button>
+  </div>
 </form>

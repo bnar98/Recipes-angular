@@ -1,17 +1,35 @@
-<form style="margin-left: 30px;" (ngSubmit)="addItem(f)" #f="ngForm">
-    <div class="row">
-        <div class="col-2">
-            <label>Name:</label>
-            <input type="text" class="form-control" name="name" ngModel required>
-        </div>
-        <div class="col-1">
-            <label>Amount</label>
-            <input type="text" class="form-control" name="amount" ngModel required pattern="^[1-9]+[0-9]*$">
-        </div>
+<form style="margin-left: 30px" (ngSubmit)="addItem(f)" #f="ngForm">
+  <div class="row">
+    <div class="col-2">
+      <label>Name:</label>
+      <input type="text" class="form-control" name="name" ngModel required />
     </div>
-    <div class="">
-        <button class="btn btn-success" type="submit" [disabled]="!f.valid">{{ editMode?"Update":"Add"}}</button>
-        <button class="btn btn-danger" type="button" (click)="onDelete()" *ngIf="editMode">Delete</button>
-        <button class="btn btn-primary" type="button" (click)="onClear()">Clear</button>
+    <div class="col-1">
+      <label>Amount</label>
+      <input
+        type="text"
+        class="form-control"
+        name="amount"
+        ngModel
+        required
+        pattern="^[1-9]+[0-9]*$"
+      />
     </div>
+  </div>
+  <div class="">
+    <button class="btn btn-success" type="submit" [disabled]="!f.valid">
+      {{ editMode ? 'Update' : 'Add' }}
+    </button>
+    <button
+      class="btn btn-danger"
+      type="button"
+      (click)="onDelete()"
+      *ngIf="editMode"
+    >
+      Delete
+    </button>
+    <button class="btn btn-primary" type="button" (click)="onClear()">
+      Clear
+    </button>
+  </div>
 </form>

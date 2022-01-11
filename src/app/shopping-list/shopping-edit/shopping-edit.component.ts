@@ -1,4 +1,13 @@
-import { Component, DoCheck, ElementRef, EventEmitter, OnDestroy, OnInit, Output, ViewChild } from '@angular/core';
+import {
+  Component,
+  DoCheck,
+  ElementRef,
+  EventEmitter,
+  OnDestroy,
+  OnInit,
+  Output,
+  ViewChild
+} from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { Ingredient } from 'src/app/shared/ingredient.model';
@@ -15,42 +24,38 @@ export class ShoppingEditComponent implements OnInit, OnDestroy {
   editMode = false;
   editedItemIndex: number | undefined;
   editedItem: Ingredient | undefined;
-  constructor(private shoppingService: ShoppingListService) { }
-
-
+  constructor(private shoppingService: ShoppingListService) {}
 
   ngOnInit(): void {
-    this.shoppingService.startingEdit
-      .subscribe((index: number) => {
-        this.editedItemIndex = index;
-        this.editMode = true;
-        this.editedItem = this.shoppingService.getIngrediant(index);
-        this.ShoppingForm?.setValue({
-          name: this.editedItem.name,
-          amount: this.editedItem.amount
-        })
+    this.shoppingService.startingEdit.subscribe((index: number) => {
+      this.editedItemIndex = index;
+      this.editMode = true;
+      this.editedItem = this.shoppingService.getIngrediant(index);
+      this.ShoppingForm?.setValue({
+        name: this.editedItem.name,
+        amount: this.editedItem.amount
       });
+    });
   }
   addItem(form: NgForm) {
-    const newIngredient = new Ingredient(form.value.name, form.value.amount)
+    const newIngredient = new Ingredient(form.value.name, form.value.amount);
     if (this.editMode && this.editedItemIndex) {
-      this.shoppingService.UpdateIngrediat(this.editedItemIndex, newIngredient)
+      this.shoppingService.UpdateIngrediat(this.editedItemIndex, newIngredient);
     } else {
       this.shoppingService.addIngrediant(newIngredient);
     }
-    this.editMode = false
+    this.editMode = false;
     form.reset();
   }
   onClear() {
     this.ShoppingForm?.reset();
-    this.editMode = false
+    this.editMode = false;
   }
   onDelete() {
     if (this.editedItemIndex) {
       this.shoppingService.DeleteIngrediant(this.editedItemIndex);
-      this.onClear()
+      this.onClear();
     }
-
   }
   ngOnDestroy(): void {
     this.subscription?.unsubscribe();

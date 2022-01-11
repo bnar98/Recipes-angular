@@ -15,23 +15,20 @@ export class RecipesDetailComponent implements OnInit {
   id: number | undefined;
 
   ingrediants: Ingredient | undefined;
-  constructor(private recipeService: RecipeService,
+  constructor(
+    private recipeService: RecipeService,
     private route: ActivatedRoute,
-    private router: Router) {
-  }
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
-    this.route.params
-      .subscribe(
-        (params: Params) => {
-          this.id = +params['id']
-          this.recipeDetail = this.recipeService.getRecipe(this.id)
-        }
-      )
-
+    this.route.params.subscribe((params: Params) => {
+      this.id = +params['id'];
+      this.recipeDetail = this.recipeService.getRecipe(this.id);
+    });
   }
   onEditRecipe() {
-    this.router.navigate(['edit'], { relativeTo: this.route })
+    this.router.navigate(['edit'], { relativeTo: this.route });
   }
   // ToShoppingList() {
 

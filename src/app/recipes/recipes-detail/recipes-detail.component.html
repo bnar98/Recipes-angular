@@ -1,48 +1,57 @@
 <div class="row">
-    <div class="col xs 12">
-        <img src="{{recipeDetail?.imagePath}}" alt="image" style="height: 400px; width: 500px;">
-    </div>
+  <div class="col xs 12">
+    <img
+      src="{{ recipeDetail?.imagePath }}"
+      alt="image"
+      style="height: 400px; width: 500px"
+    />
+  </div>
 </div>
 <div class="row">
-    <div class="col-xs-12">
-        <h1>{{recipeDetail?.name}}</h1>
-    </div>
+  <div class="col-xs-12">
+    <h1>{{ recipeDetail?.name }}</h1>
+  </div>
 </div>
 <div class="row">
-    <div class="col-xs 12">
-        <div class="btn-group">
+  <div class="col-xs 12">
+    <div class="btn-group">
+      <ul class="dropdown-menu">
+        <li><a href="#" class="dropdown-item">To Shopping list</a></li>
+        <li><a href="#">edit recipe</a></li>
+        <li><a href="#">delete recipe</a></li>
+      </ul>
 
-            <ul class="dropdown-menu">
-                <li><a href="#" class="dropdown-item">To Shopping list</a></li>
-                <li><a href="#">edit recipe</a></li>
-                <li><a href="#">delete recipe</a></li>
-            </ul>
-
-            <button type="button" class="btn btn-primary nav-link dropdown-toggle" id="navbarDropdownMenuLink"
-                data-bs-toggle="dropdown" aria-expanded="false" style="color:white">
-                manage recipe<span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <li><a class="dropdown-item" href="#">To shopping list</a></li>
-                <li><a class="dropdown-item" (click)="onEditRecipe()"> edit recipe</a></li>
-                <li><a class="dropdown-item" href="#"> delete recipe</a></li>
-            </ul>
-
-        </div>
+      <button
+        type="button"
+        class="btn btn-primary nav-link dropdown-toggle"
+        id="navbarDropdownMenuLink"
+        data-bs-toggle="dropdown"
+        aria-expanded="false"
+        style="color: white"
+      >
+        manage recipe<span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+        <li><a class="dropdown-item" href="#">To shopping list</a></li>
+        <li>
+          <a class="dropdown-item" (click)="onEditRecipe()"> edit recipe</a>
+        </li>
+        <li><a class="dropdown-item" href="#"> delete recipe</a></li>
+      </ul>
     </div>
-
+  </div>
 </div>
 <div class="row">
-    <div class="col-xs-12">
-        {{recipeDetail?.description}}
-    </div>
+  <div class="col-xs-12">
+    {{ recipeDetail?.description }}
+  </div>
 </div>
 <div class="row">
-    <div class="col-xs-12">
-        <ul>
-            <li *ngFor="let ingrediant of recipeDetail?.ingrediants">
-                {{ingrediant.name}} -{{ingrediant.amount}}
-            </li>
-        </ul>
-    </div>
+  <div class="col-xs-12">
+    <ul>
+      <li *ngFor="let ingrediant of recipeDetail?.ingrediants">
+        {{ ingrediant.name }} -{{ ingrediant.amount }}
+      </li>
+    </ul>
+  </div>
 </div>

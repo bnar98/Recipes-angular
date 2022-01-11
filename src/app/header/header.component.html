@@ -1,37 +1,41 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light" style="margin-bottom: 100px;">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#">Navbar</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
-            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav">
-                <li class="nav-item" routerLinkActive="activeClass" [routerLinkActiveOptions]="{exact:true}"
-                    *ngIf="isAuthenticate">
-                    <a class="nav-link active" aria-current="page" routerLink="/recipes">Recipes</a>
-                </li>
-                <li class="nav-item" routerLinkActive="activeClass">
-                    <a class="nav-link" routerLink="/shopping">Shopping list</a>
-                </li>
-                <li class="nav-item" routerLinkActive="activeClass" *ngIf="!isAuthenticate">
-                    <a class="nav-link" routerLink="/auth">Authenticate</a>
-                </li>
-                <li class="nav-item" routerLinkActive="activeClass" *ngIf="isAuthenticate">
-                    <a class="nav-link">Logout</a>
-                </li>
+<nav class="navbar navbar-expand-lg navbar-light bg-light" style="margin-bottom: 100px">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+      aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item" routerLinkActive="activeClass" [routerLinkActiveOptions]="{ exact: true }"
+          *ngIf="isAuthenticate">
+          <a class="nav-link active" aria-current="page" routerLink="/recipes">Recipes</a>
+        </li>
+        <li class="nav-item" routerLinkActive="activeClass">
+          <a class="nav-link" routerLink="/shopping">Shopping list</a>
+        </li>
+        <li class="nav-item" routerLinkActive="activeClass" *ngIf="!isAuthenticate">
+          <a class="nav-link" routerLink="/auth">Authenticate</a>
+        </li>
+        <li class="nav-item" routerLinkActive="activeClass" *ngIf="isAuthenticate">
+          <a class="nav-link" (click)="logout()">Logout</a>
+        </li>
 
-                <li class="nav-item dropdown" routerLinkActive="activeClass" *ngIf="isAuthenticate">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-                        data-bs-toggle="dropdown" aria-expanded="false">
-                        Manage
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <li><a class="dropdown-item" (click)="onsaveData()">save data</a></li>
-                        <li><a class="dropdown-item" (click)="fetchRecipe()"> fetch data</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
+        <li class="nav-item dropdown" routerLinkActive="activeClass" *ngIf="isAuthenticate">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+            data-bs-toggle="dropdown" aria-expanded="false">
+            Manage
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <li>
+              <a class="dropdown-item" (click)="onsaveData()">save data</a>
+            </li>
+            <li>
+              <a class="dropdown-item" (click)="fetchRecipe()"> fetch data</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
     </div>
+  </div>
 </nav>
